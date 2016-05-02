@@ -7,7 +7,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     mochaTest: {
       test: {
-        src: ['test/*.js']
+        src: ['dist/test/*.js']
       }
     },
     babel: {
@@ -15,7 +15,11 @@ module.exports = function (grunt) {
         options: {
           presets: ['es2015']
         },
-        files: {}
+        files: {
+          'dist/ir.js': 'src/ir.js',
+          'dist/l10n.js': 'src/l10n.js',
+          'dist/test/ir.js': 'src/test/ir.js'
+        }
       }
     }
   });
